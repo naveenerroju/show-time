@@ -19,9 +19,15 @@ container.addEventListener("click", (e) => {
 });
 
 function updateSelectedCount() {
-    const selectedSeats = document.querySelectorAll(".row .seat.selected");
-    const selectedSeatsCount = selectedSeats.length;
-  
-    count.innerText = selectedSeatsCount;
-    total.innerText = selectedSeatsCount * ticketPrice;
-  }
+  const selectedSeats = document.querySelectorAll(".row .seat.selected");
+  const selectedSeatsCount = selectedSeats.length;
+
+  count.innerText = selectedSeatsCount;
+  total.innerText = selectedSeatsCount * ticketPrice;
+}
+
+// Movie select event
+movieSelect.addEventListener("change", (e) => {
+  ticketPrice = +e.target.value;
+  updateSelectedCount();
+});
